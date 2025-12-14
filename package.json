@@ -1,0 +1,14 @@
+{
+  "name": "web",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.24.0",
+    "axios": "^1.6.8",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "react-hook-form": "^7.51.0",
+    "socket.io-client": "^4.7.5"
+  }
+}
