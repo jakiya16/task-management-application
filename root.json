@@ -1,0 +1,11 @@
+{
+  "name": "task-manager",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter api dev\" \"pnpm --filter web dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
