@@ -1,0 +1,36 @@
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  REVIEW
+  COMPLETED
+}
+
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  password String
+  name     String
+  tasks    Task[] @relation("Creator")
+  assigned Task[] @relation("Assignee")
+}
+
+model Task {
+  id           String       @id @default(uuid())
+  title        String
+  description  String
+  dueDate      DateTime
+  priority     TaskPriority
+  status       TaskStatus
+  creatorId    String
+  assignedToId String?
+
+  creator  User @relation("Creator", fields: [creatorId], references: [id])
+  assignee User? @relation("Assignee", fields: [assignedToId], references: [id])
+}
